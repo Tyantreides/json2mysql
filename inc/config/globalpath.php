@@ -1,0 +1,7 @@
+<?php
+
+
+define(GLOBAL_BASE_DIR,$_SERVER['DOCUMENT_ROOT'].'/json2mysql');
+define(GLOBAL_INCLUDE_DIR, GLOBAL_BASE_DIR.'/inc');
+define(GLOBAL_CONFIG_DIR,GLOBAL_INCLUDE_DIR.'/config/');
+
