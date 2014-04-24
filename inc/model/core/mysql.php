@@ -32,7 +32,6 @@ class model_core_mysql {
     }
 
     public function selectdb(){
-    	echo $this->_dbname;
         mysql_select_db($this->_dbname,$this->_connection) or die('<br>DB select fail: dbname: '.$this->_dbname.' mysqlerror: '.mysql_error());
         // or die($this->_debuglog = $this->adddebugline(get_class($this).' : '.mysql_error(),$this->_debuglog));
         return true;
