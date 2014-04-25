@@ -4,7 +4,7 @@
  */
 class app_core_controller{
 	
-	function __construct($action,$params=NULL) {
+	function __construct($action,$params) {
 		$this->run($action,$params);
 	}
 	
@@ -12,7 +12,7 @@ class app_core_controller{
 		
 	}
 	
-	private function run($action,$params=NULL){
+	private function run($action,$params){
 		if(method_exists($this, $this->converttomethodname($action, 'action'))){
 			$methodname = $this->converttomethodname($action, 'action');
 			if(isset($params) && $params != NULL){
