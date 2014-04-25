@@ -9,12 +9,13 @@ class model_ext_request extends model_core_dataobj {
 	private $_action;
 	private $_requestparam;
 	
-	function __construct($action,$requestparam,$auth,$data=NULL) {
-		$this->unprocessed();
-		$this->setaction($action);
-		$this->setrequestparam($requestparam);
-		$this->setauth($auth);
-		$this->pushdata($data);
+	function __construct($inputobj) {
+		$this->setprocessed($inputobj['processed']);
+		$this->setaction($inputobj['action']);
+		$this->setrequestparam($inputobj['requestparam']);
+		$this->setauth($inputobj['auth']);
+		$this->pushdata($inputobj['data']);
+        $this->settype($inputobj['type']);
 	}
 	
 	private function getauth(){

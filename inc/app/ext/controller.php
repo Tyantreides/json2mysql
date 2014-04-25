@@ -55,14 +55,15 @@ class app_ext_controller extends app_core_controller {
 	 * 
 	 */
 	function pushjsonaction($params){
-		$this->view = new helper_viewhelper();
+        $this->view = new helper_viewhelper();
+        $this->view->print_r($params);
+
 		$this->config = new model_core_config();
-		$this->requestobj = new model_ext_request('pushjson',$params,$this->auth());
-		$this->modeljson = new model_ext_json();
+        $this->modeljson = new model_ext_json();
+        $this->requestobj = new model_ext_request($this->modeljson->toobj($params));
+        $this->view->print_r($this->requestobj);
 		$this->modelmysql = new model_ext_mysql($this->config);
 		$this->requestobj->pushdata($this->modeljson->toobj($this->requestobj->pullrequestparam()));
-		$this->modelmysql->connect();
-		$this->modelmysql->selectdb();
 		// $this->view->print_r($this->requestobj);
 		$this->result = $this->modelmysql->processrequest($this->requestobj);
 		// $this->view->print_r($this->result);

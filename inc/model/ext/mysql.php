@@ -26,9 +26,25 @@ class model_ext_mysql extends model_core_mysql{
 	}
 	
 	private function pushjson(model_ext_request $requestobj){
-		// print_r('<pre>');
-		// print_r($requestobj);
-		// print_r('</pre>');
-		return $requestobj->pulldata();
+        $this->prepare();
+        if($this->checkdata($requestobj)){
+            return $requestobj->pulldata();
+        }
+		else{
+            return false;
+        }
 	}
+
+    private function prepare(){
+        $this->connect();
+        $this->selectdb();
+    }
+
+    private function checkdata(model_ext_request $requestobj){
+        return is_array($requestobj->pulldata());
+    }
+
+    private function prepairquery(model_ext_request $requestobj){
+
+    }
 } 

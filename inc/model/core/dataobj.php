@@ -20,7 +20,7 @@ class model_core_dataobj{
 		return $this->_data;
 	}
 	
-	private function setprocessed($status){
+	public function setprocessed($status){
 		$this->_processed = $status;
 	}
 	
@@ -28,7 +28,7 @@ class model_core_dataobj{
 		return $this->_processed;
 	}
 	
-	private function settype($type){
+	public function settype($type){
 		$this->_type = $type;
 	}
 	
