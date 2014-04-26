@@ -9,7 +9,7 @@ require_once(APP_EXT_PATH.'controller.php');
 
 
 // $controller = new app_ext_controller('pull','SELECT * FROM testtabelle');
-$controller = new app_ext_controller('pushjson','{"processed":false,"type":"json","auth":false,"action":"pushjson","data":{"1":{"a":"b","c":"d","e":"f"},"2":{"a":"b","c":"d","e":"f"},"3":{"a":"b","c":"d","e":"f"}},"requestparam":{"mysqlquery":"SELECT * FROM testtabelle","c":"d","e":"f"}}');
+$controller = new app_ext_controller('pushjson','{"processed":false,"type":"json","auth":false,"action":"pushjson","content":"sample","data":{"1":{"numid":"b","zeit":"d","field1":"f","field2":"f"},"2":{"numid":"b","zeit":"d","field1":"f","field2":"f"},"3":{"numid":"b","zeit":"d","field1":"f","field2":"f"}},"requestparam":{"mysqlquery":"SELECT * FROM testtabelle","c":"d","e":"f"}}');
 print_r('<pre>');
 print_r($controller->viewresult());
 print_r('</pre>');

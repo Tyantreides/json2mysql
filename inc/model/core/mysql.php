@@ -7,8 +7,10 @@ class model_core_mysql {
     protected $_dbname;
     protected $_dbuser;
     protected $_dbpass;
+	protected $_dbtablename;
     protected $_connection;
 	protected $_config;
+	protected $_fieldmapping;
 
     public $_debuglog;
 
@@ -18,6 +20,8 @@ class model_core_mysql {
 		$this->_dbname = $this->_config->getdbname();
 		$this->_dbuser = $this->_config->getdbuser();
 		$this->_dbpass = $this->_config->getdbpass();
+		$this->_dbtablename = $this->_config->getdbtablename();
+		$this->_fieldmapping = $this->_config->getfieldmapping();
     }
 
     public function connect(){
@@ -36,4 +40,9 @@ class model_core_mysql {
         // or die($this->_debuglog = $this->adddebugline(get_class($this).' : '.mysql_error(),$this->_debuglog));
         return true;
     }
+	
+	protected function getfieldmapping(){
+		return $this->_fieldmapping;
+	}
+	
 } 

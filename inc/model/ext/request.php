@@ -8,6 +8,7 @@ class model_ext_request extends model_core_dataobj {
 	private $_auth;
 	private $_action;
 	private $_requestparam;
+	private $_content;
 	
 	function __construct($inputobj) {
 		$this->setprocessed($inputobj['processed']);
@@ -16,6 +17,7 @@ class model_ext_request extends model_core_dataobj {
 		$this->setauth($inputobj['auth']);
 		$this->pushdata($inputobj['data']);
         $this->settype($inputobj['type']);
+		$this->setcontent($inputobj['content']);
 	}
 	
 	private function getauth(){
@@ -40,6 +42,14 @@ class model_ext_request extends model_core_dataobj {
 	
 	private function setrequestparam($requestparam){
 		$this->_requestparam = $requestparam;
+	}
+	
+	private function getcontent(){
+		return $this->_content;
+	}
+	
+	private function setcontent($content){
+		$this->_content = $content;
 	}
 	
 	public function pushdata($data){
@@ -67,5 +77,9 @@ class model_ext_request extends model_core_dataobj {
 	
 	public function pullrequestparam(){
 		return $this->getrequestparam();
+	}
+	
+	public function pullcontent(){
+		return $this->getcontent();
 	}
 }

@@ -9,6 +9,8 @@ class model_core_config{
     protected $_dbname;
     protected $_dbuser;
     protected $_dbpass;
+	protected $_dbtablename;
+	protected $_fieldmapping;
 	
 	function __construct() {
 		include(GLOBAL_CONFIG_DIR.'/globalsettings.php');
@@ -16,6 +18,8 @@ class model_core_config{
 		$this->setdbname($dbname);
 		$this->setdbuser($dbuser);
 		$this->setdbpass($dbpass);
+		$this->settablename($dbtable);
+		$this->setfieldmapping($dbfields);
 	}
 	
 	function setdbserver($dbserver){
@@ -34,6 +38,14 @@ class model_core_config{
 		$this->_dbpass = $dbpass;
 	}
 	
+	function settablename($tablename){
+		$this->_dbtablename = $tablename;
+	}
+	
+	function setfieldmapping($fieldmapping){
+		$this->_fieldmapping = $fieldmapping;
+	}
+	
 	function getdbserver(){
 		return $this->_dbserver;
 	}
@@ -48,6 +60,14 @@ class model_core_config{
 	
 	function getdbpass(){
 		return $this->_dbpass;
+	}
+	
+	function getdbtablename(){
+		return $this->_dbtablename;
+	}
+	
+	function getfieldmapping(){
+		return $this->_fieldmapping;
 	}
 	
 }
